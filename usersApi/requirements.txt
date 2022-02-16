@@ -1,0 +1,8 @@
+sqlalchemy==1.4.31
+pydantic==1.8.2
+alembic==1.7.6
+fastapi==0.70.1
+email-validator==1.1.2
+bcrypt==3.2.0
+uvicorn==0.15.0
+aiomysql==0.0.21
