@@ -8,6 +8,4 @@ RUN pip install pip --upgrade
 RUN pip install pipenv
 RUN pipenv install --system --deploy --ignore-pipfile
 
-RUN alambic upgrade head
-
 EXPOSE 8000
