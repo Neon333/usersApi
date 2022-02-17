@@ -5,7 +5,12 @@ Service builded on FastApi.
 
 # Installation
 
-The only right way to run this service is use docker-compose
+1. Clone this repo
+```sh
+git clone https://github.com/Neon333/usersApi
+```
+
+2.The only right way to run this service is use docker-compose
 
 ```sh
 cd usersApi
