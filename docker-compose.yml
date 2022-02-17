@@ -1,9 +1,9 @@
 version: '3.9'
-#alembic upgrade head & 
+
 
 services:
   usersapi:
-    build: ./usersApi
+    build: ./api
     restart: always
     command: sh -c "alembic upgrade head && uvicorn app:app --host 0.0.0.0 --port 8000 --debug"
     ports:
@@ -25,7 +25,6 @@ services:
       MYSQL_USER: usersApi
       MYSQL_PASSWORD: usersApi
       MYSQL_DATABASE: usersApi
-      #MYSQL_ROOT_HOST: host.docker.internal
     ports:
       - "3306:3306"
     networks:
@@ -36,8 +35,27 @@ services:
       retries: 10
     volumes:
       - my-datavolume:/var/lib/mysql
+
+  test_db:
+    image: mysql:5.7
+    restart: always
+    container_name: test_db
+    environment:
+      MYSQL_ROOT_PASSWORD: usersApi
+      MYSQL_USER: usersApi
+      MYSQL_PASSWORD: usersApi
+      MYSQL_DATABASE: usersApi_test
+      MYSQL_TCP_PORT: 3007
+    ports:
+      - "3307:3307"
+    networks:
+      - merg-app
+
+
 networks:
   merg-app:
     driver: "bridge"
+
+
 volumes:
   my-datavolume:
