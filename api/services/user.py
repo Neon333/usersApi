@@ -1,18 +1,18 @@
 from typing import List, Union, Tuple
 
-from database.base import get_session
-from models.users import RegisteredUser, UnregisteredUser, UpdateUser
-from database.models import User
+from ..database.base import get_session
+from ..models.users import RegisteredUser, UnregisteredUser, UpdateUser
+from ..database.models import User
 
 from sqlalchemy import select, update
 from sqlalchemy.sql.functions import func
 
-from services.base import RequireDbService
-from services.exceptions import UserAlreadyExists, InvalidEmail, InvalidUsernameLen, InvalidPasswordLen, UserNotExists
+from ..services.base import RequireDbService
+from ..services.exceptions import UserAlreadyExists, InvalidEmail, InvalidUsernameLen, InvalidPasswordLen, UserNotExists
 
 from email_validator import validate_email, EmailNotValidError
 
-from utlis.password import hash_password
+from ..utlis.password import hash_password
 
 
 class UserController(RequireDbService):
