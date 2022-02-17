@@ -4,11 +4,12 @@ API_PATH = f'/api/{API_VERSION}'
 
 class Database:
     USER = "root"
-    PASSWORD = "kolanchik2015"
+    PASSWORD = "usersApi"
     NAME = "usersApi"
-    HOST = "127.0.0.1"
+    HOST = "db"
 
 
 class TestDatabase(Database):
     NAME = "usersApi_test"
-    PORT = 3306
+    PORT = 3307
+    HOST = "test_db"
